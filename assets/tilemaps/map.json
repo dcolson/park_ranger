@@ -35,7 +35,7 @@
         }, 
         {
          "height":50,
-         "name":"Object Layer 1",
+         "name":"objectsLayer",
          "objects":[
                 {
                  "gid":1381,
@@ -102,6 +102,21 @@
          "imagewidth":32,
          "margin":0,
          "name":"Server Objects",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":32,
+         "tilewidth":32
+        }, 
+        {
+         "firstgid":2020,
+         "image":"tile1.png",
+         "imageheight":2016,
+         "imagewidth":1024,
+         "margin":0,
+         "name":"tile1",
          "properties":
             {
 

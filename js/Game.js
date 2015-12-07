@@ -8,7 +8,7 @@ RPGGame.Game.prototype = {
     this.map = this.game.add.tilemap('map');
 
     //the first parameter is the tileset name as specified in Tiled, the second is the key to the asset
-    this.map.addTilesetImage('tile1', 'gameTiles');
+    this.map.addTilesetImage('tiles', 'gameTiles');
 
     //create layer
     this.backgroundlayer = this.map.createLayer('backgroundLayer');
@@ -22,10 +22,9 @@ RPGGame.Game.prototype = {
     this.backgroundlayer.resizeWorld();
 
     this.createItems();
-    this.createDoors();    
 
     //create player
-    var result = this.findObjectsByType('playerStart', this.map, 'objectsLayer')
+    var result = this.findObjectsByType('playerStart', this.map, 'Object Layer 1')
     this.player = this.game.add.sprite(result[0].x, result[0].y, 'player');
     this.game.physics.arcade.enable(this.player);
 
@@ -46,21 +45,11 @@ RPGGame.Game.prototype = {
       this.createFromTiledObject(element, this.items);
     }, this);
   },
-  createDoors: function() {
-    //create doors
-    this.doors = this.game.add.group();
-    this.doors.enableBody = true;
-    result = this.findObjectsByType('door', this.map, 'objectsLayer');
-
-    result.forEach(function(element){
-      this.createFromTiledObject(element, this.doors);
-    }, this);
-  },
 
   //find objects in a Tiled layer that containt a property called "type" equal to a certain value
   findObjectsByType: function(type, map, layer) {
     var result = new Array();
-    map.objects[layer].forEach(function(element){
+    map.objects['Object Layer 1'].forEach(function(element){
       if(element.properties.type === type) {
         //Phaser uses top left, Tiled bottom left so we have to adjust
         //also keep in mind that the cup images are a bit smaller than the tile which is 16x16
@@ -92,20 +81,20 @@ RPGGame.Game.prototype = {
 
     if(this.cursors.up.isDown) {
       if(this.player.body.velocity.y == 0)
-      this.player.body.velocity.y -= 50;
+      this.player.body.velocity.y -= 100;
     }
     else if(this.cursors.down.isDown) {
       if(this.player.body.velocity.y == 0)
-      this.player.body.velocity.y += 50;
+      this.player.body.velocity.y += 100;
     }
     else {
       this.player.body.velocity.y = 0;
     }
     if(this.cursors.left.isDown) {
-      this.player.body.velocity.x -= 50;
+      this.player.body.velocity.x -= 100;
     }
     else if(this.cursors.right.isDown) {
-      this.player.body.velocity.x += 50;
+      this.player.body.velocity.x += 100;
     }
   },
   collect: function(player, collectable) {

@@ -9,6 +9,9 @@
  <tileset firstgid="2019" name="Server Objects" tilewidth="32" tileheight="32">
   <image source="server_objects.png" width="32" height="32"/>
  </tileset>
+ <tileset firstgid="2020" name="tile1" tilewidth="32" tileheight="32">
+  <image source="../assets/tilemaps/tile1.png" width="1024" height="2016"/>
+ </tileset>
  <layer name="backgroundLayer" width="50" height="50">
   <data encoding="base64" compression="zlib">
    eJztz6ENADAMBLFfL7t16Ci8Kk2BgfldJSkAAAAAAAAAuDgP220+fGzz8RcfwGjThder
@@ -24,7 +27,7 @@
    eJzdWUtuFEEMbUj3zEFAkTjHIBHOQaLkIBByCzYwYcuKTxYskjvwWSAFcg6ErYyF43G5bHcVEXlSqaZn0j3v5T27q2tOpmF4CePkP5/fwji9A/MRjMM7MD8dbg4Lx1PlD24BxHt/MQwHC98564qOnjrPxpvj1XQ9E//nMF44dSBPyZUfk86rnTbcOZAzx+eNDuL/GsYbhw7ku562PaHj3pmTOug94u/N1Vp4IXlLfa11UZ7ksSdXFtdSrdA5Vi1dwmc/p/rs0eHJlfU/lq85f62OuIZzGBeOWWrREM2V5MjrguqGayn5cQ++6xd8djXV5/sOXtFccf5Sj/b6eNq+BqK1H9FcafzXxms6V/qS8WOh9CpCJley93IPOGerPkgLcsRZ80FmatfQkbkPcs5cA/+fa/ViQfPHUxcET640HjIv2n1R9gILWr146oLgyZWHB0GuT+b4QVq0+4hEJlc17vx9jx+r0de/LC2Z9ZWExrO0DivB07+sesmsr0rQfKn1LKnF6l+WH7VcrYxeJyEzRe9F6osQ7V/RXJVwoPSrJzD2lNmDaP/K3Ac9QM6lfQ2PlqgfLfqVBnzmL+1rHDW8n2DuV4nnQS80P7waEF4/qH575Urzw6sBEfED0StXmh+1uuD7Etb9XdPSI1d43R5+WL78i34V1YCw7u+alh65Ig0ZHwjR9ZaVq8w+WqYuNETXWy1yxe/lc+uCEPWjda4ifljP21E/WveriB/4vF3SEvWjdb+K9ilt7+Cy4oPmR8t1O+LQ4YME98TygbjTcwpH61xxP7x9inti1UXL58EaMn4gyJOSH7U9oFb9arGp2WfT39/rIiBPsvtYpVxZPVHTsDva+33e62T3sUq58nAiD+by59/p9eOHeC+TK86/lQaC14/fM/tVL/6EbH14+9XcDL1fDsMHGO82o4RsfXhylfFgB641sut9Ae5fmY698XpIeP2Qa3FPrjIePIBrPUz08db9ai5WcK3HyvUeVThZfnwEHz8tt2dEr32GLLgfMlPfgPP35faM6LV/lQX3I/J7FPlx2zM+U9LvNbSepWP8rHY++fEHcfxl0g==
   </data>
  </layer>
- <objectgroup name="Object Layer 1" width="50" height="50">
+ <objectgroup name="objectsLayer" width="50" height="50">
   <object gid="1381" x="141" y="236">
    <properties>
     <property name="type" value="playerStart"/>
