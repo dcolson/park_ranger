@@ -3,16 +3,13 @@
 
 	<head>
 		<meta charset="utf-8" />
-		<title>Learn Game Development at ZENVA.com</title>
+		<title>CIS197 Final Project</title>
 
-		<script type="text/javascript" src="js/phaser.js"></script>
-		<script type="text/javascript" src="js/Boot.js"></script>
-		<script type="text/javascript" src="js/Preload.js"></script>
+		<script type="text/javascript" src="js/phaser.min.js"></script>
 		<script type="text/javascript" src="js/Game.js"></script>
 
 		<style>
 		  body {
-		    padding: 0px;
 		    margin: 0px;
 		  }
 		  </style>
@@ -20,6 +17,34 @@
 
 	<body>  
 		<!-- include the main game file -->
-		<script src="js/main.js"></script>
+		<script type="text/javascript">
+
+			var RPGGame = RPGGame || {};
+
+			RPGGame.game = new Phaser.Game(160, 160, Phaser.AUTO, '', { preload: preload});
+
+			RPGGame.game.state.add('Game', RPGGame.Game);
+
+			function preload () {
+				console.log(this);
+    		//scaling options
+    		this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+
+    		//physics system
+    		this.game.physics.startSystem(Phaser.Physics.ARCADE);
+    
+    		//load game assets
+    		this.load.tilemap('level1', 'assets/tilemaps/level1.json', null, Phaser.Tilemap.TILED_JSON);
+    		this.load.image('gameTiles', 'assets/images/tiles.png');
+    		this.load.image('bluecup', 'assets/images/bluecup.png');
+    		this.load.image('player', 'assets/images/player.png');
+    		this.load.image('browndoor', 'assets/images/browndoor.png');
+
+    		this.state.start('Game');
+  		}
+
+		</script>
+
+
 	</body>
 </html>
