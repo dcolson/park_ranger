@@ -8,7 +8,7 @@ RPGGame.Game.prototype = {
     this.map = this.game.add.tilemap('map');
 
     //the first parameter is the tileset name as specified in Tiled, the second is the key to the asset
-    this.map.addTilesetImage('tiles', 'gameTiles');
+    this.map.addTilesetImage('tile1', 'gameTiles');
 
     //create layer
     this.backgroundlayer = this.map.createLayer('backgroundLayer');
