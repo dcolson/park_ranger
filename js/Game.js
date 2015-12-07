@@ -5,7 +5,7 @@ RPGGame.Game = function(){};
 
 RPGGame.Game.prototype = {
   create: function() {
-    this.map = this.game.add.tilemap('level1');
+    this.map = this.game.add.tilemap('test test');
 
     //the first parameter is the tileset name as specified in Tiled, the second is the key to the asset
     this.map.addTilesetImage('tiles', 'gameTiles');
