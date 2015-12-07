@@ -5,7 +5,7 @@
 		<meta charset="utf-8" />
 		<title>CIS197 Final Project</title>
 
-		<script type="text/javascript" src="js/phaser.min.js"></script>
+		<script type="text/javascript" src="js/phaser.js"></script>
 		<script type="text/javascript" src="js/Game.js"></script>
 
 		<style>
@@ -34,11 +34,9 @@
     		this.game.physics.startSystem(Phaser.Physics.ARCADE);
     
     		//load game assets
-    		this.load.tilemap('level1', 'assets/tilemaps/level1.json', null, Phaser.Tilemap.TILED_JSON);
-    		this.load.image('gameTiles', 'assets/images/tiles.png');
-    		this.load.image('bluecup', 'assets/images/bluecup.png');
+    		this.load.tilemap('map', 'assets/tilemaps/map.json', null, Phaser.Tilemap.TILED_JSON);
+    		this.load.image('gameTiles', 'assets/tilemaps/tile1.png');
     		this.load.image('player', 'assets/images/player.png');
-    		this.load.image('browndoor', 'assets/images/browndoor.png');
 
     		this.state.start('Game');
   		}

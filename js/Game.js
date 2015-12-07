@@ -5,17 +5,18 @@ RPGGame.Game = function(){};
 
 RPGGame.Game.prototype = {
   create: function() {
-    this.map = this.game.add.tilemap('test test');
+    this.map = this.game.add.tilemap('map');
 
     //the first parameter is the tileset name as specified in Tiled, the second is the key to the asset
     this.map.addTilesetImage('tiles', 'gameTiles');
 
     //create layer
     this.backgroundlayer = this.map.createLayer('backgroundLayer');
+    this.backgroundlayer2 = this.map.createLayer('backgroundLayer2');
     this.blockedLayer = this.map.createLayer('blockedLayer');
 
     //collision on blockedLayer
-    this.map.setCollisionBetween(1, 2000, true, 'blockedLayer');
+    this.map.setCollisionBetween(1, 3000, true, 'blockedLayer');
 
     //resizes the game world to match the layer dimensions
     this.backgroundlayer.resizeWorld();

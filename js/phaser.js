@@ -89975,6 +89975,7 @@ Phaser.Tilemap.prototype = {
 
         if (typeof layer === 'string')
         {
+            console.log(layer);
             index = this.getLayerIndex(layer);
         }
 
