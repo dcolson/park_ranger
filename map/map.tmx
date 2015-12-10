@@ -12,6 +12,21 @@
  <tileset firstgid="2020" name="tile1" tilewidth="32" tileheight="32">
   <image source="../assets/tilemaps/tile1.png" width="1024" height="2016"/>
  </tileset>
+ <tileset firstgid="4036" name="hyptosis_tile-art-batch-1" tilewidth="32" tileheight="32">
+  <image source="../../../../../../Downloads/hyptosis_tile-art-batch-1.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="4936" name="hyptosis_til-art-batch-2" tilewidth="32" tileheight="32">
+  <image source="../../../../../../Downloads/hyptosis_til-art-batch-2.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="5836" name="hyptosis_tile-art-batch-3" tilewidth="32" tileheight="32">
+  <image source="../../../../../../Downloads/hyptosis_tile-art-batch-3.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="6736" name="hyptosis_tile-art-batch-4" tilewidth="32" tileheight="32">
+  <image source="../../../../../../Downloads/hyptosis_tile-art-batch-4.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="7636" name="hyptosis_sprites-and-tiles-for-you" tilewidth="32" tileheight="32">
+  <image source="../../../../../../Downloads/hyptosis_sprites-and-tiles-for-you.png" width="960" height="960"/>
+ </tileset>
  <layer name="backgroundLayer" width="50" height="50">
   <data encoding="base64" compression="zlib">
    eJztz6ENADAMBLFfL7t16Ci8Kk2BgfldJSkAAAAAAAAAuDgP220+fGzz8RcfwGjThder
@@ -24,13 +39,68 @@
  </layer>
  <layer name="blockedLayer" width="50" height="50">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <objectgroup name="objectsLayer" width="50" height="50">
   <object gid="1381" x="141" y="236">
    <properties>
     <property name="type" value="playerStart"/>
+   </properties>
+  </object>
+  <object gid="4817" x="302" y="705">
+   <properties>
+    <property name="type" value="enemy"/>
+   </properties>
+  </object>
+  <object gid="4817" x="309" y="1059">
+   <properties>
+    <property name="type" value="enemy"/>
+   </properties>
+  </object>
+  <object gid="4817" x="444" y="1158">
+   <properties>
+    <property name="type" value="enemy"/>
+   </properties>
+  </object>
+  <object gid="4817" x="756" y="1464">
+   <properties>
+    <property name="type" value="enemy"/>
+   </properties>
+  </object>
+  <object gid="4817" x="875" y="1476">
+   <properties>
+    <property name="type" value="enemy"/>
+   </properties>
+  </object>
+  <object gid="4817" x="779" y="1517">
+   <properties>
+    <property name="type" value="enemy"/>
+   </properties>
+  </object>
+  <object gid="4817" x="1025" y="696">
+   <properties>
+    <property name="type" value="enemy"/>
+   </properties>
+  </object>
+  <object gid="4817" x="875" y="181">
+   <properties>
+    <property name="type" value="enemy"/>
+   </properties>
+  </object>
+  <object gid="8134" x="1385" y="324">
+   <properties>
+    <property name="type" value="enemy"/>
+   </properties>
+  </object>
+  <object gid="8134" x="1457" y="324">
+   <properties>
+    <property name="type" value="enemy"/>
+   </properties>
+  </object>
+  <object gid="8134" x="1423" y="326">
+   <properties>
+    <property name="type" value="enemy"/>
    </properties>
   </object>
  </objectgroup>

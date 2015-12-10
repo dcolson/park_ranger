@@ -7,6 +7,7 @@
 
 		<script type="text/javascript" src="js/phaser.js"></script>
 		<script type="text/javascript" src="js/Game.js"></script>
+		<script type="text/javascript" src="js/gameOver.js"></script>
 
 		<style>
 		  body {
@@ -21,7 +22,7 @@
 
 			var RPGGame = RPGGame || {};
 
-			RPGGame.game = new Phaser.Game(400, 300, Phaser.AUTO, '', { preload: preload});
+			RPGGame.game = new Phaser.Game(480, 360, Phaser.AUTO, '', { preload: preload});
 
 			RPGGame.game.state.add('Game', RPGGame.Game);
 
@@ -36,7 +37,8 @@
     		//load game assets
     		this.load.tilemap('map', 'assets/tilemaps/map.json', null, Phaser.Tilemap.TILED_JSON);
     		this.load.image('gameTiles', 'assets/tilemaps/tile1.png');
-    		this.load.image('player', 'assets/images/player.png');
+    		this.load.image('goblin', 'assets/images/enemy1.png');
+    		this.load.spritesheet('player', 'assets/images/dude.png', 32, 48);
 
     		this.state.start('Game');
   		}

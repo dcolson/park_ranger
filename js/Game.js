@@ -24,15 +24,35 @@ RPGGame.Game.prototype = {
     this.createItems();
 
     //create player
-    var result = this.findObjectsByType('playerStart', this.map, 'Object Layer 1')
+    var result = this.findObjectsByType('playerStart', this.map, 'objectsLayer');
     this.player = this.game.add.sprite(result[0].x, result[0].y, 'player');
     this.game.physics.arcade.enable(this.player);
+    this.game.state.add("GameOver", gameOver);
+
+    this.player.frame = 4;
+
+    // create enemies
+    var enemyResult = this.findObjectsByType('enemy', this.map, 'objectsLayer');
+    enemies = this.add.group();
+    this.game.physics.arcade.enable(enemies);
+    enemies.enableBody = true;
+
+    for (var i = 0; i < enemyResult.length; i++) {
+      var goblin = enemies.create(enemyResult[i].x, enemyResult[i].y, 'goblin');
+    }
 
     //the camera will follow the player in the world
     this.game.camera.follow(this.player);
 
     //move player with cursor keys
     this.cursors = this.game.input.keyboard.createCursorKeys();
+
+    //add player health
+    this.player.healthText = this.game.add.text(16, 16, '<3 <3 <3', { fontSize: '32px', fill: '#C00000' });
+    this.player.healthText.fixedToCamera = true;
+    this.player.healthNumber = 3;
+    this.player.hit = false;
+    this.player.hitTime = Date.now();
 
   },
   createItems: function() {
@@ -49,7 +69,7 @@ RPGGame.Game.prototype = {
   //find objects in a Tiled layer that containt a property called "type" equal to a certain value
   findObjectsByType: function(type, map, layer) {
     var result = new Array();
-    map.objects['Object Layer 1'].forEach(function(element){
+    map.objects['objectsLayer'].forEach(function(element){
       if(element.properties.type === type) {
         //Phaser uses top left, Tiled bottom left so we have to adjust
         //also keep in mind that the cup images are a bit smaller than the tile which is 16x16
@@ -69,11 +89,32 @@ RPGGame.Game.prototype = {
         sprite[key] = element.properties[key];
       });
   },
+  decreaseHealth: function() {
+    if (!--this.player.healthNumber) {
+      this.game.state.start('GameOver', true, false);
+    }
+    console.log(this.player.healthText);
+    this.player.healthText.text = '<3 '.repeat(this.player.healthNumber);
+    this.player.hit = true;
+    this.player.hitTime = Date.now();
+  },
+  endGame: function() {
+
+  },
   update: function() {
     //collision
     this.game.physics.arcade.collide(this.player, this.blockedLayer);
-    this.game.physics.arcade.overlap(this.player, this.items, this.collect, null, this);
-    this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
+
+    // only have player take hit if hasn't been hit in last 1.5 seconds
+    if (this.player.hit) {
+      if (Date.now() > this.player.hitTime + 1500) {
+        this.player.hit = false;
+        this.game.physics.arcade.overlap(this.player, enemies, this.decreaseHealth, null, this);
+      }
+    } else {
+      this.game.physics.arcade.overlap(this.player, enemies, this.decreaseHealth, null, this);
+    }
+
 
     //player movement
     
@@ -102,8 +143,5 @@ RPGGame.Game.prototype = {
 
     //remove sprite
     collectable.destroy();
-  },
-  enterDoor: function(player, door) {
-    console.log('entering door that will take you to '+door.targetTilemap+' on x:'+door.targetX+' and y:'+door.targetY);
-  },
+  }
 };
