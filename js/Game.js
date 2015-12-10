@@ -1,5 +1,8 @@
 var RPGGame = RPGGame || {};
 
+var nextShot = 0;
+var projectiles;
+
 //title screen
 RPGGame.Game = function(){};
 
@@ -36,6 +39,16 @@ RPGGame.Game.prototype = {
     enemies = this.add.group();
     this.game.physics.arcade.enable(enemies);
     enemies.enableBody = true;
+
+    // add projectiles
+    projectiles = this.game.add.group();
+    projectiles.enableBody = true;
+    this.game.physics.arcade.enable(projectiles);
+    projectiles.physicsBodyType = Phaser.Physics.ARCADE;
+
+    projectiles.createMultiple(50, 'shot');
+    projectiles.setAll('checkWorldBounds', true);
+    projectiles.setAll('outOfBoundsKill', true);
 
     for (var i = 0; i < enemyResult.length; i++) {
       var goblin = enemies.create(enemyResult[i].x, enemyResult[i].y, 'goblin');
@@ -101,6 +114,14 @@ RPGGame.Game.prototype = {
   endGame: function() {
 
   },
+  shoot: function() {
+    if (Date.now() > nextShot && projectiles.countDead() > 0) {
+        nextShot = Date.now() + 200;
+        var shot = projectiles.getFirstDead();
+        shot.reset(sprite.x - 8, sprite.y - 8);
+        game.physics.arcade.moveToPointer(shot, 300);
+      }
+  },
   update: function() {
     //collision
     this.game.physics.arcade.collide(this.player, this.blockedLayer);
@@ -115,6 +136,9 @@ RPGGame.Game.prototype = {
       this.game.physics.arcade.overlap(this.player, enemies, this.decreaseHealth, null, this);
     }
 
+    if (this.game.input.activePointer.isDown) {
+      this.shoot;
+    }
 
     //player movement
     
