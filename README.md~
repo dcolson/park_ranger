@@ -1,6 +1,6 @@
-#Welcome to Park Ranger! 
+README:
 
-In this game, you must keep out the goblins from your humble village by shooting stones at them. This document is to make sure you can run the program and play the game okay!
+Welcome to Park Ranger! In this game, you must keep out the goblins from your humble village by shooting stones at them. This document is to make sure you can run the program and play the game okay!
 
 1. Open a terminal and navigate to the folder directory where this file is stored.
 2. Type "sudo npm install http-server", type your password and allow the package to install
@@ -9,4 +9,4 @@ In this game, you must keep out the goblins from your humble village by shooting
 
 If any of the steps above do not work, feel free to email me at dcolsonvt@gmail.com.
 
-Move your character with the arrows keys. Aim with the mouse and shoot by clicking. Kill all the goblins!
+Quickly, some basic controls for the game. Move with the arrows, and with the mouse, and shoot by clicking. Kill all the goblins!# park_ranger
