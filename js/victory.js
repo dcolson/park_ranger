@@ -1,29 +1,18 @@
-<!DOCTYPE html>
-<html>
 
-	<head>
-		<meta charset="utf-8" />
-		<title>CIS197 Final Project</title>
+var victory = function (game) {}
+ 
+victory.prototype = {
+  create: function () {
+    this.game.add.text(240, 180, 'Congratulations!', 
+      { fill: 'yellow', fontsize: '28px' });
+    this.game.add.button (200, 240, 'player', this.startGame, this);
+  },
+  startGame: function () {
+    this.game.state.start('Game');
+  }
+}
 
-		<script type="text/javascript" src="js/phaser.js"></script>
-		<script type="text/javascript" src="js/Game.js"></script>
-		<script type="text/javascript" src="js/gameOver.js"></script>
-		<script type="text/javascript" src="js/victory.js"></script>
-
-		<style>
-		  body {
-		    margin: 0px;
-		  }
-		  </style>
-	</head>
-
-	<body>  
-		<!-- include the main game file -->
-		<script type="text/javascript">
-
-			
-
-      var RPGGame = RPGGame || {};
+var RPGGame = RPGGame || {};
 
       RPGGame.game = new Phaser.Game(480, 360, Phaser.AUTO, '', { preload: preload});
 
@@ -49,10 +38,3 @@
 
         this.state.start('Game', true, false);
       }
-  		}
-
-		</script>
-
-
-	</body>
-</html>
